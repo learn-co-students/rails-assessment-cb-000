@@ -15,5 +15,10 @@
   <%= @church.minister %>
 </p>
 
+<p>
+  <strong>Applicants:</strong>
+  <%= render 'applicants/index' %>
+</p>
+
 <%= link_to 'Edit', edit_church_path(@church) %> |
 <%= link_to 'Back', churches_path %>

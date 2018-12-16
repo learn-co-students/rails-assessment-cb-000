@@ -8,6 +8,7 @@ class ChurchesController < ApplicationController
 
   # GET /churches/1
   def show
+    @applicants = @church.applicants
   end
 
   # GET /churches/new

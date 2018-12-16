@@ -24,10 +24,11 @@
     <%= f.text_field :address %>
   </div>
   <div class="field">
-    <%= f.label :gender %><br>
-    <%= f.radio_button :gender, 0 %> Male<br />
-    <%= f.radio_button :gender, 1 %> Female<br />
-
+    Gender: 
+    <% Applicant.genders.keys.each do |gender| %>
+      <%= f.radio_button :gender, gender %>
+      <%= f.label gender.to_sym %>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :dob %><br>
@@ -38,12 +39,11 @@
     <%= f.number_field :phone %>
   </div>
   <div class="field">
-    <%= f.label :married_status %><br>
-    <%= f.number_field :married_status %>
-  </div>
-  <div class="field">
-    <%= f.label :household_id %><br>
-    <%= f.number_field :household_id %>
+    Marital Status: 
+    <% Applicant.married_statuses.keys.each do |married_status| %>
+      <%= f.radio_button :married_status, married_status %>
+      <%= f.label married_status.to_sym %>
+    <% end %>
   </div>
 
   <div class="field">
@@ -52,7 +52,7 @@
     <% if @applicant.church.nil? %>
       <%= select_tag "applicant[church_id]", options_from_collection_for_select(Church.all, :id, :city) %>
     <% else %>
-      <%= hidden_field_tag "applicant[church_id]", applicant.church_id %>
+      <%= hidden_field_tag "applicant[church_id]", @applicant.church_id %>
     <% end %>
   </div>
 
@@ -61,8 +61,12 @@
     <%= f.text_field :occupation %>
   </div>
   <div class="field">
-    <%= f.label :occupation_status %><br>
-    <%= f.number_field :occupation_status %>
+    Occupational Status: 
+    <% Applicant.occupation_statuses.keys.each do |occupation_status| %>
+      <%= f.radio_button :occupation_status, occupation_status %>
+      <%= f.label occupation_status.to_sym %>
+    <% end %>
+  </div>
   </div>
   <div class="field">
     <%= f.label :income %><br>

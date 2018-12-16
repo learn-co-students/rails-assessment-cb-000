@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181212173404) do
+ActiveRecord::Schema.define(version: 20181215203559) do
 
   create_table "applicants", force: :cascade do |t|
     t.string   "fname"
     t.string   "lname"
     t.string   "address"
-    t.boolean  "gender"
+    t.integer  "gender"
     t.integer  "dob"
     t.string   "phone"
     t.integer  "married_status"
