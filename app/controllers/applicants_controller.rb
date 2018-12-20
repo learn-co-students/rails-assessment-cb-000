@@ -8,6 +8,9 @@ class ApplicantsController < ApplicationController
 
   # GET /applicants/1
   def show
+    @assets = Asset.where(applicant_id: @applicant.id)
+    @household_members = HouseholdMember.where(applicant_id: @applicant.id)
+    @requests = Request.where(applicant_id: @applicant.id)
   end
 
   # GET /applicants/new
@@ -24,7 +27,7 @@ class ApplicantsController < ApplicationController
     @applicant = Applicant.new(applicant_params)
 
     if @applicant.save
-      redirect_to @applicant, notice: 'Applicant was successfully created.'
+      redirect_to applicant_assets_path(@applicant), notice: 'Applicant was successfully created.'
     else
       render :new
     end
