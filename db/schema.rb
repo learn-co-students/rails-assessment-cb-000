@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20181215203559) do
     t.integer  "dob"
     t.string   "phone"
     t.integer  "married_status"
-    t.integer  "household_id"
     t.integer  "church_id"
     t.string   "occupation"
     t.integer  "occupation_status"

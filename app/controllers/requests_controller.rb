@@ -26,7 +26,7 @@ class RequestsController < ApplicationController
     @request = Request.new(request_params)
 
     if @request.save
-      redirect_to applicant_url(@applicant), notice: 'Request was successfully created.'
+	    redirect_to applicant_url(@applicant), notice: 'Request was successfully submitted. Please review, and make changes if needed.'
     else
       render :new
     end
