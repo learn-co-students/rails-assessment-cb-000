@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Sower's Fund!</title>
+  </head>
+  <body>
+
+  <%= render 'layouts/header' %>
+  <br>
+
+<%= yield %>
+
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %> <!-- Didn't recognize 'method: :delete' without this line -->
+<%= csrf_meta_tags %> <!-- needed to fix InvlaidAuthenticityToken Errors -->
+
+  </body>
+</html>
